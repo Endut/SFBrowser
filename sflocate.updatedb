@@ -93,7 +93,7 @@ trap 'rm -f $tmp; rmdir $TMPDIR; exit' 0 1 2 3 5 10 15
 #echo $find $SEARCHPATHS $excludes -or -print && exit
 
 #find -E . -iregex ".*\.(wav|mp3|aiff|aif|flac)"
-if $find -s -E $SEARCHPATHS $excludes -or -print -type f -iregex ".*\.(wav|mp3|aiff|aif|flac)" \ 2>/dev/null |
+if $find -s -E $SEARCHPATHS $excludes -or -print -type f -iregex ".*\.(wav|mp3|aiff|aif|flac)" 2>/dev/null |
         $mklocatedb -presort > $tmp
 then
 	case X"`$find $tmp -size -257c -print`" in
