@@ -52,7 +52,7 @@ SFBrowser {
 				listView.items_(soundFiles);
 				},
 				{
-					var filtered = ("locate -d ~/Library/sflocate.database "++query).unixCmdGetStdOutLines;
+					var filtered = ("locate -d ~/Library/sflocate.database -i "++query).unixCmdGetStdOutLines;
 					filtered = filtered.collect({ arg path; Association.new(path.basename.splitext.at(0), path) });
 					listView.items_(filtered);
 
