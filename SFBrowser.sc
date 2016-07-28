@@ -2,11 +2,11 @@ SFBrowser {
 	classvar <soundFiles;
 	classvar <>updateScript;
 	classvar <>database;
-	classvar window, searchField, listView;
+	classvar <window, searchField, listView;
 	classvar <>editor, <>player;
 	*initClass {
 		//contentLocations = ["/Users/adamjuraszek/Sounds", "/Volumes/DATA/extrasounds", "/Volumes/DATA/Recordings"];
-		var thisFolder = this.class.filenameSymbol.asString;
+		var thisFolder = this.class.filenameSymbol.asString.dirname;
 		//thisFolder.asString.dirname.postln;
 		player = "/usr/local/bin/mplayer -quiet ";
 		updateScript = thisFolder +/+ "sflocate.updatedb";
@@ -101,7 +101,7 @@ SFBrowser {
 
 	}
 	*rescan {
-		updateScript.unixCmd;
+		updateScript.shellQuote.unixCmd;
 		window.close;
 		super.initClass;
 		super.show;
