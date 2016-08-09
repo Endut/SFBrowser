@@ -103,7 +103,7 @@ SFBrowser {
 	*rescan {
 		updateScript.shellQuote.unixCmd;
 		window.close;
-		super.initClass;
-		super.show;
+		this.initClass;
+		this.show;
 	}
 }
